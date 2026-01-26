@@ -1,0 +1,82 @@
+.stars {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #0B0D10;
+  z-index: -1;
+  pointer-events: none;
+}
+
+.stars::before,
+.stars::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-image:
+    radial-gradient(1px 1px at 10% 20%, white, transparent),
+    radial-gradient(1px 1px at 30% 80%, white, transparent),
+    radial-gradient(1px 1px at 50% 40%, white, transparent),
+    radial-gradient(1px 1px at 70% 60%, white, transparent),
+    radial-gradient(2px 2px at 90% 30%, white, transparent);
+  background-size: 250px 250px;
+  animation: twinkle 2s infinite alternate;
+  opacity: 0.6;
+}
+
+.stars::after {
+  animation-duration: 2s;
+  opacity: 0.4;
+}
+
+@keyframes twinkle {
+  from { opacity: 0.6; }
+  to { opacity: -1; }
+}
+
+/* ---- SHOOTING STARS ---- */
+
+.shooting-stars {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: -1;
+}
+
+.shooting-stars span {
+  position: absolute;
+  width: 120px;
+  height: 2px;
+  background: linear-gradient(90deg, white, transparent);
+  opacity: 0.8;
+  transform: rotate(220deg);
+  animation: shoot 3s linear infinite;
+}
+
+.shooting-stars span:nth-child(1) {
+  top: 20%;
+  left: 10%;
+  animation-delay: 0s;
+}
+
+.shooting-stars span:nth-child(2) {
+  top: 40%;
+  left: 80%;
+  animation-delay:0s;
+}
+
+
+
+@keyframes shoot {
+  from {
+    transform: translate(0, 0) rotate(220deg);
+    opacity: 1;
+  }
+  to {
+    transform: translate(600px, 600px) rotate(220deg);
+    opacity: 0;
+  }
+}  
