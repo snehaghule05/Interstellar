@@ -1,8 +1,7 @@
 from flask import Flask, request, jsonify
 from flask_cors import CORS
 from login_logic import register_user, login_user, sessions
-
-import mysql.connector
+from Backend.db_config import get_connection
 
 app = Flask(__name__)
 CORS(app)
@@ -55,4 +54,4 @@ def login():
 # SERVER RUN
 # -------------------------
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(debug=True,use_reloader=False)
