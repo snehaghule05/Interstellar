@@ -1,7 +1,7 @@
 from flask import Flask, request, jsonify
 from flask_cors import CORS
 from login_logic import register_user, login_user, sessions
-from Backend.db_config import get_connection
+from db_config import get_connection
 
 app = Flask(__name__)
 CORS(app)
